@@ -9,16 +9,37 @@ body {
   color: #131922;
 }
 
-.mr-nav:hover  { color: #131922 !important; }
-.mr-foot:hover { color: #131922 !important; }
-.mr-primary:hover { background: #1A39B8 !important; }
-.mr-ghost:hover { border-color: #9AA6BC !important; }
-.mr-domain:hover {
-  border-color: #CAD2E0 !important;
-  box-shadow: 0 2px 4px rgba(19,25,34,0.05), 0 6px 16px rgba(19,25,34,0.06) !important;
-}
-.mr-input:focus {
+/* ── Interactive states ──────────────────────── */
+.ti-nav:hover    { color: #131922 !important; }
+.ti-foot:hover   { color: #131922 !important; }
+.ti-primary:hover { background: #1A39B8 !important; }
+.ti-ghost:hover  { border-color: #9AA6BC !important; }
+.ti-input:focus  {
   border-color: #2348E0 !important;
-  box-shadow: 0 0 0 3px rgba(35,72,224,0.14) !important;
+  box-shadow: 0 0 0 3px rgba(35,72,224,0.16) !important;
   outline: none;
 }
+
+/* Treemap tiles */
+.ti-tile {
+  cursor: pointer;
+  transition: transform .14s, filter .14s;
+}
+.ti-tile:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* Pipeline stage cards */
+.ti-stage {
+  cursor: pointer;
+  transition: border-color .14s, background .14s;
+}
+
+/* Coverage heatmap cells */
+.ti-cell { transition: transform .1s; }
+.ti-cell:hover { transform: scale(1.08); z-index: 2; position: relative; }
+
+/* ── Animations ───────────────────────────────── */
+@keyframes tiBlink  { 0%,100%{opacity:1} 50%{opacity:.45} }
+@keyframes tiPulse  { 0%,100%{opacity:.35} 50%{opacity:.9} }
