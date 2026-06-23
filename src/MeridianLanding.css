@@ -1,112 +1,113 @@
-/* ── Container ───────────────────────────────────────────── */
-.mr-container {
-  max-width: 1180px;
+/* ── Container ───────────────────────────────── */
+.ti-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 40px;
   padding-right: 40px;
 }
 
-/* ── Header ──────────────────────────────────────────────── */
-.mr-header-inner {
+/* ── Header ──────────────────────────────────── */
+.ti-header-inner {
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.mr-header-nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-.mr-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+.ti-header-nav { display: flex; align-items: center; gap: 30px; }
+.ti-header-actions { display: flex; align-items: center; gap: 18px; }
 
-/* ── Hero ────────────────────────────────────────────────── */
-.mr-hero {
-  padding: 84px 0 68px;
+/* ── Hero ────────────────────────────────────── */
+.ti-hero {
   display: flex;
-  gap: 64px;
-  align-items: flex-start;
+  gap: 56px;
+  align-items: center;
   flex-wrap: wrap;
+  padding: 78px 0 72px;
 }
-.mr-hero-text {
-  flex: 1;
-  min-width: 420px;
-  max-width: 600px;
-}
-.mr-hero-panel {
-  flex: 0 0 408px;
-  width: 408px;
-}
+.ti-hero-text { flex: 1; min-width: 440px; max-width: 620px; }
+.ti-hero-panel { flex: 0 0 392px; width: 392px; }
 
-/* ── Stat band ───────────────────────────────────────────── */
-.mr-stat-band {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* Trust ribbon */
+.ti-trust-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 22px 0 30px;
   border-top: 1px solid #E1E6EF;
-  border-bottom: 1px solid #E1E6EF;
 }
-.mr-stat-item { padding: 34px 28px; }
-.mr-stat-item:first-child       { padding-left: 0; }
-.mr-stat-item:last-child        { padding-right: 0; }
-.mr-stat-item:not(:last-child)  { border-right: 1px solid #E1E6EF; }
 
-/* ── Taxonomy ────────────────────────────────────────────── */
-.mr-taxonomy-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 42px;
-}
-.mr-taxonomy-grid {
+/* ── Pipeline ────────────────────────────────── */
+.ti-pipeline-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.mr-taxonomy-summary {
-  grid-column: span 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1.7fr 1fr;
   gap: 20px;
+  align-items: stretch;
 }
-
-/* ── Approach ────────────────────────────────────────────── */
-.mr-approach-grid {
+.ti-stages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 9px;
 }
 
-/* ── Early access ────────────────────────────────────────── */
-.mr-early-box {
+/* ── Taxonomy treemap ────────────────────────── */
+.ti-taxonomy-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+.ti-treemap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 380px;
+}
+.ti-treemap-row { display: flex; gap: 8px; }
+
+/* ── Risk register + Roadmap ─────────────────── */
+.ti-risk-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.ti-register-header,
+.ti-register-row {
+  display: grid;
+  grid-template-columns: 62px 1fr 70px 64px;
+  gap: 10px;
+  padding: 13px 18px;
+}
+
+/* ── Research + Benchmark ────────────────────── */
+.ti-research-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ── Early access ────────────────────────────── */
+.ti-early-box {
   display: flex;
   gap: 48px;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 56px;
+  padding: 52px 56px;
 }
-.mr-early-form {
-  min-width: 340px;
-  flex: 1;
-  max-width: 440px;
-}
+.ti-early-form { min-width: 340px; flex: 1; max-width: 440px; }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.mr-footer-inner   { padding: 64px 0 36px; }
-.mr-footer-columns {
+/* ── Footer ──────────────────────────────────── */
+.ti-footer-inner { padding: 64px 0 36px; }
+.ti-footer-columns {
   display: flex;
   gap: 56px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.mr-footer-bottom {
+.ti-footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,73 +117,66 @@
   padding-top: 24px;
   border-top: 1px solid #E1E6EF;
 }
-.mr-footer-links { display: flex; gap: 56px; flex-wrap: wrap; }
-
-/* ── Domain panel name column ────────────────────────────── */
-.mr-domain-name { width: 188px; flex: none; }
+.ti-footer-links { display: flex; gap: 56px; flex-wrap: wrap; }
 
 
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
    RESPONSIVE
-   ═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════ */
 
-/* ── Tablet  1024px → 768px ──────────────────────────────── */
+/* ── Tablet 768–1023px ───────────────────────── */
 @media (max-width: 1023px) {
-  .mr-container { padding-left: 28px; padding-right: 28px; }
+  .ti-container { padding-left: 28px; padding-right: 28px; }
 
-  .mr-hero       { padding: 64px 0 52px; gap: 44px; }
-  .mr-hero-text  { min-width: 0; }
-  .mr-hero-panel { flex: none; width: 100%; max-width: 520px; }
+  .ti-hero { gap: 40px; padding: 60px 0 52px; }
+  .ti-hero-text { min-width: 0; }
+  .ti-hero-panel { flex: none; width: 100%; max-width: 520px; }
 
-  /* Taxonomy drops to 2-col so cards stay readable */
-  .mr-taxonomy-grid    { grid-template-columns: repeat(2, 1fr); }
-  .mr-taxonomy-summary { grid-column: span 2; }
+  .ti-pipeline-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ti-stages-grid   { grid-template-columns: repeat(3, 1fr); }
+
+  .ti-taxonomy-layout { grid-template-columns: 1fr; }
+  .ti-treemap { height: 280px; }
+
+  .ti-risk-layout     { grid-template-columns: 1fr; }
+  .ti-research-layout { grid-template-columns: 1fr; }
 }
 
-/* ── Mobile  < 768px ─────────────────────────────────────── */
+/* ── Mobile < 768px ──────────────────────────── */
 @media (max-width: 767px) {
-  .mr-container { padding-left: 20px; padding-right: 20px; }
+  .ti-container { padding-left: 20px; padding-right: 20px; }
 
-  /* Header: hide nav + contact link, keep logo + CTA */
-  .mr-header-inner   { height: 60px; }
-  .mr-header-nav     { display: none; }
-  .mr-header-contact { display: none; }
-  .mr-logo-tagline   { display: none; }
+  /* Header */
+  .ti-header-inner   { height: 60px; }
+  .ti-header-nav     { display: none; }
+  .ti-header-contact { display: none; }
+  .ti-logo-tagline   { display: none; }
 
-  /* Hero: stack vertically */
-  .mr-hero       { padding: 44px 0 36px; gap: 28px; flex-direction: column; }
-  .mr-hero-text  { min-width: 0; max-width: 100%; flex: none; }
-  .mr-hero-panel { width: 100%; flex: none; }
+  /* Hero */
+  .ti-hero { padding: 44px 0 36px; gap: 28px; flex-direction: column; }
+  .ti-hero-text { min-width: 0; max-width: 100%; flex: none; }
+  .ti-hero-panel { width: 100%; flex: none; }
 
-  /* Stat band: 2 × 2 */
-  .mr-stat-band { grid-template-columns: repeat(2, 1fr); }
-  .mr-stat-item { padding: 22px 16px; }
-  .mr-stat-item:first-child  { padding-left: 16px; }
-  .mr-stat-item:last-child   { padding-right: 16px; border-right: none; }
-  .mr-stat-item:nth-child(2) { border-right: none; }
-  .mr-stat-item:nth-child(1),
-  .mr-stat-item:nth-child(2) { border-bottom: 1px solid #E1E6EF; }
+  /* Treemap: 2-col grid on mobile */
+  .ti-treemap { display: grid; grid-template-columns: 1fr 1fr; height: auto; gap: 8px; }
+  .ti-treemap-row { display: contents; }
+  .ti-tile { min-height: 90px; }
 
-  /* Taxonomy: 1-col */
-  .mr-taxonomy-grid    { grid-template-columns: 1fr; }
-  .mr-taxonomy-summary { grid-column: span 1; flex-direction: column; align-items: flex-start; }
-
-  /* Approach: stack */
-  .mr-approach-grid { grid-template-columns: 1fr; gap: 28px; }
+  /* Pipeline stages: 2-col */
+  .ti-stages-grid { grid-template-columns: 1fr 1fr; }
 
   /* Early access */
-  .mr-early-box  { padding: 32px 24px; gap: 28px; }
-  .mr-early-form { min-width: 0; max-width: 100%; }
+  .ti-early-box  { padding: 32px 24px; gap: 28px; }
+  .ti-early-form { min-width: 0; max-width: 100%; }
 
   /* Footer */
-  .mr-footer-inner  { padding-top: 48px; padding-bottom: 28px; }
-  .mr-footer-links  { gap: 28px; }
-  .mr-footer-bottom { margin-top: 40px; }
+  .ti-footer-inner  { padding-top: 48px; padding-bottom: 28px; }
+  .ti-footer-links  { gap: 28px; }
+  .ti-footer-bottom { margin-top: 40px; }
 }
 
-/* ── Small mobile  < 480px ───────────────────────────────── */
+/* ── Small mobile < 480px ────────────────────── */
 @media (max-width: 479px) {
-  .mr-container   { padding-left: 16px; padding-right: 16px; }
-  .mr-domain-name { width: 130px; }
-  .mr-early-box   { padding: 28px 18px; }
+  .ti-container { padding-left: 16px; padding-right: 16px; }
+  .ti-early-box { padding: 28px 18px; }
 }
