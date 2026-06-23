@@ -1,9 +1,9 @@
 /* ── Container ───────────────────────────────── */
 .ti-container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 
 /* ── Header ──────────────────────────────────── */
@@ -126,7 +126,7 @@
 
 /* ── Tablet 768–1023px ───────────────────────── */
 @media (max-width: 1023px) {
-  .ti-container { padding-left: 28px; padding-right: 28px; }
+  .ti-container { padding-left: 32px; padding-right: 32px; }
 
   .ti-hero { gap: 40px; padding: 60px 0 52px; }
   .ti-hero-text { min-width: 0; }
