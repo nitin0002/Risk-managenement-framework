@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './MeridianLanding.css';
 
 const LAUNCH_LABEL = 'Fall 2026';
 
@@ -23,7 +24,7 @@ function MeridianLogo() {
         <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1" fill="#A31F34" />
       </svg>
       <span style={{ fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 19, letterSpacing: '-0.01em', color: '#131922' }}>Meridian</span>
-      <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, letterSpacing: '0.14em', color: '#6A7689', borderLeft: '1px solid #E1E6EF', paddingLeft: 11 }}>RISK&nbsp;INTELLIGENCE</span>
+      <span className="mr-logo-tagline" style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, letterSpacing: '0.14em', color: '#6A7689', borderLeft: '1px solid #E1E6EF', paddingLeft: 11 }}>RISK&nbsp;INTELLIGENCE</span>
     </a>
   );
 }
@@ -31,15 +32,15 @@ function MeridianLogo() {
 function Header() {
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 20, background: 'rgba(255,255,255,0.86)', backdropFilter: 'saturate(180%) blur(12px)', borderBottom: '1px solid #E1E6EF' }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto', padding: '0 40px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="mr-container mr-header-inner">
         <MeridianLogo />
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        <nav className="mr-header-nav">
           {[['#platform', 'Platform'], ['#taxonomy', 'Taxonomy'], ['#approach', 'Approach'], ['#contact', 'Company']].map(([href, label]) => (
             <a key={label} href={href} className="mr-nav" style={{ fontSize: 14, fontWeight: 500, color: '#4C5768', textDecoration: 'none', transition: 'color .15s' }}>{label}</a>
           ))}
         </nav>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-          <a href="#contact" className="mr-nav" style={{ fontSize: 14, fontWeight: 500, color: '#4C5768', textDecoration: 'none', transition: 'color .15s' }}>Contact</a>
+        <div className="mr-header-actions">
+          <a href="#contact" className="mr-nav mr-header-contact" style={{ fontSize: 14, fontWeight: 500, color: '#4C5768', textDecoration: 'none', transition: 'color .15s' }}>Contact</a>
           <a href="#early" className="mr-primary" style={{ display: 'inline-flex', alignItems: 'center', height: 38, padding: '0 17px', borderRadius: 8, background: '#2348E0', color: '#FFFFFF', fontSize: 14, fontWeight: 600, textDecoration: 'none', transition: 'background .15s' }}>Request access</a>
         </div>
       </div>
@@ -49,7 +50,7 @@ function Header() {
 
 function DomainCoveragePanel() {
   return (
-    <div style={{ flex: '0 0 408px', width: 408, border: '1px solid #E1E6EF', borderRadius: 14, background: '#FFFFFF', boxShadow: '0 4px 10px rgba(19,25,34,0.06), 0 16px 32px rgba(19,25,34,0.08)', overflow: 'hidden' }}>
+    <div className="mr-hero-panel" style={{ border: '1px solid #E1E6EF', borderRadius: 14, background: '#FFFFFF', boxShadow: '0 4px 10px rgba(19,25,34,0.06), 0 16px 32px rgba(19,25,34,0.08)', overflow: 'hidden' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 18px', borderBottom: '1px solid #EEF1F6', background: '#F7F8FB' }}>
         <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, letterSpacing: '0.1em', color: '#4C5768' }}>DOMAIN&nbsp;COVERAGE</span>
         <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: '#6A7689' }}>7 / 7 mapped</span>
@@ -59,7 +60,7 @@ function DomainCoveragePanel() {
           {DOMAINS.map(d => (
             <div key={d.num} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <span style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flex: 'none' }} />
-              <span style={{ fontSize: 13, color: '#353E4D', width: 188 }}>{d.name}</span>
+              <span className="mr-domain-name" style={{ fontSize: 13, color: '#353E4D' }}>{d.name}</span>
               <span style={{ flex: 1, height: 6, borderRadius: 3, background: '#EEF1F6', overflow: 'hidden' }}>
                 <span style={{ display: 'block', height: '100%', width: `${d.pct}%`, background: d.color, borderRadius: 3 }} />
               </span>
@@ -76,20 +77,20 @@ function DomainCoveragePanel() {
   );
 }
 
-function Hero({ onScrollToEarly }) {
+function Hero() {
   return (
-    <section style={{ padding: '84px 0 68px', display: 'flex', gap: 64, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-      <div style={{ flex: 1, minWidth: 420, maxWidth: 600 }}>
+    <section className="mr-hero">
+      <div className="mr-hero-text">
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, letterSpacing: '0.14em', color: '#6A7689', marginBottom: 26 }}>
           <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#A31F34' }} />
           AI&nbsp;RISK&nbsp;INTELLIGENCE
           <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#CAD2E0' }} />
           COMING&nbsp;SOON · {LAUNCH_LABEL}
         </div>
-        <h1 style={{ margin: 0, fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 'clamp(40px,5vw,60px)', lineHeight: 1.06, letterSpacing: '-0.025em', color: '#131922', textWrap: 'balance' }}>
+        <h1 style={{ margin: 0, fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 'clamp(36px,5vw,60px)', lineHeight: 1.06, letterSpacing: '-0.025em', color: '#131922', textWrap: 'balance' }}>
           The system of record for enterprise AI risk.
         </h1>
-        <p style={{ margin: '26px 0 0', fontSize: 19, lineHeight: 1.6, color: '#4C5768', maxWidth: 540 }}>
+        <p style={{ margin: '26px 0 0', fontSize: 'clamp(16px,2vw,19px)', lineHeight: 1.6, color: '#4C5768', maxWidth: 540 }}>
           Meridian turns the MIT AI Risk taxonomy — over 1,700 documented risks across seven domains — into continuous, audit-grade governance. One repository for the risks your models carry, the controls that contain them, and the evidence your board expects.
         </p>
         <div style={{ display: 'flex', gap: 14, marginTop: 34, flexWrap: 'wrap' }}>
@@ -111,10 +112,10 @@ function StatBand() {
     { value: '74',     label: 'Source frameworks' },
   ];
   return (
-    <section style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', borderTop: '1px solid #E1E6EF', borderBottom: '1px solid #E1E6EF' }}>
-      {stats.map((s, i) => (
-        <div key={s.label} style={{ padding: i === 0 ? '34px 28px 34px 0' : i === stats.length - 1 ? '34px 0 34px 28px' : '34px 28px', borderRight: i < stats.length - 1 ? '1px solid #E1E6EF' : undefined }}>
-          <div style={{ fontFamily: "'Source Serif 4', serif", fontSize: 42, fontWeight: 600, letterSpacing: '-0.02em', color: '#131922' }}>
+    <section className="mr-stat-band">
+      {stats.map(s => (
+        <div key={s.label} className="mr-stat-item">
+          <div style={{ fontFamily: "'Source Serif 4', serif", fontSize: 'clamp(32px,4vw,42px)', fontWeight: 600, letterSpacing: '-0.02em', color: '#131922' }}>
             {s.accent ? <>1,700<span style={{ color: '#2348E0' }}>+</span></> : s.value}
           </div>
           <div style={{ fontSize: 13.5, color: '#6A7689', marginTop: 6 }}>{s.label}</div>
@@ -127,15 +128,15 @@ function StatBand() {
 function Taxonomy() {
   return (
     <section id="taxonomy" style={{ padding: '88px 0 24px' }}>
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 40, flexWrap: 'wrap', marginBottom: 42 }}>
+      <div className="mr-taxonomy-header">
         <div style={{ maxWidth: 560 }}>
           <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, letterSpacing: '0.16em', color: '#A31F34', marginBottom: 16 }}>THE TAXONOMY</div>
-          <h2 style={{ margin: 0, fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 36, lineHeight: 1.12, letterSpacing: '-0.02em', color: '#131922' }}>Seven domains. One shared language for risk.</h2>
+          <h2 style={{ margin: 0, fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 'clamp(26px,3vw,36px)', lineHeight: 1.12, letterSpacing: '-0.02em', color: '#131922' }}>Seven domains. One shared language for risk.</h2>
         </div>
         <p style={{ maxWidth: 380, fontSize: 15, lineHeight: 1.65, color: '#4C5768', margin: 0 }}>Meridian is built on the MIT AI Risk Repository — a peer-reviewed structure adopted by researchers, auditors, and regulators worldwide.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
+      <div className="mr-taxonomy-grid">
         {DOMAINS.map(d => (
           <div key={d.num} className="mr-domain" style={{ padding: '24px 22px', border: '1px solid #E1E6EF', borderRadius: 12, background: '#FFFFFF', transition: 'border-color .15s, box-shadow .15s' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
@@ -146,7 +147,7 @@ function Taxonomy() {
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: '#6A7689' }}>{d.desc}</p>
           </div>
         ))}
-        <div style={{ gridColumn: 'span 2', padding: '24px 22px', border: '1px dashed #CAD2E0', borderRadius: 12, background: '#F7F8FB', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
+        <div className="mr-taxonomy-summary" style={{ padding: '24px 22px', border: '1px dashed #CAD2E0', borderRadius: 12, background: '#F7F8FB' }}>
           <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: '#4C5768', maxWidth: 460 }}>Each domain resolves into 24 subdomains and links back to its source research — every risk traceable to evidence.</p>
           <a href="#early" className="mr-nav" style={{ fontSize: 14, fontWeight: 600, color: '#2348E0', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color .15s' }}>See the full register →</a>
         </div>
@@ -164,7 +165,7 @@ function Approach() {
   return (
     <section id="approach" style={{ padding: '84px 0' }}>
       <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, letterSpacing: '0.16em', color: '#A31F34', marginBottom: 42 }}>HOW MERIDIAN WORKS</div>
-      <div id="platform" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 40 }}>
+      <div id="platform" className="mr-approach-grid">
         {steps.map(s => (
           <div key={s.num} style={{ borderTop: '2px solid #131922', paddingTop: 24 }}>
             <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 13, color: '#2348E0', marginBottom: 14 }}>{s.num}</div>
@@ -188,12 +189,12 @@ function EarlyAccess() {
 
   return (
     <section id="early" style={{ padding: '8px 0 96px' }}>
-      <div style={{ border: '1px solid #E1E6EF', borderRadius: 18, background: '#F7F8FB', padding: '56px 56px', display: 'flex', gap: 48, alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+      <div className="mr-early-box" style={{ border: '1px solid #E1E6EF', borderRadius: 18, background: '#F7F8FB' }}>
         <div style={{ maxWidth: 480 }}>
           <h2 style={{ margin: '0 0 12px', fontFamily: "'Source Serif 4', serif", fontWeight: 600, fontSize: 30, lineHeight: 1.14, letterSpacing: '-0.02em', color: '#131922' }}>Request early access</h2>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: '#4C5768' }}>We're onboarding a small group of design partners ahead of general availability. Tell us where to reach you.</p>
         </div>
-        <div style={{ minWidth: 340, flex: 1, maxWidth: 440 }}>
+        <div className="mr-early-form">
           {submitted ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '18px 20px', border: '1px solid #1E9E63', background: '#FFFFFF', borderRadius: 12 }}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -211,7 +212,7 @@ function EarlyAccess() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className="mr-input"
-                  style={{ flex: 1, minWidth: 220, height: 50, padding: '0 16px', borderRadius: 10, border: '1px solid #CAD2E0', background: '#FFFFFF', color: '#131922', fontSize: 15, fontFamily: 'inherit', outline: 'none', transition: 'border-color .15s, box-shadow .15s' }}
+                  style={{ flex: 1, minWidth: 180, height: 50, padding: '0 16px', borderRadius: 10, border: '1px solid #CAD2E0', background: '#FFFFFF', color: '#131922', fontSize: 15, fontFamily: 'inherit', outline: 'none', transition: 'border-color .15s, box-shadow .15s' }}
                 />
                 <button type="submit" className="mr-primary" style={{ height: 50, padding: '0 22px', border: 'none', borderRadius: 10, background: '#2348E0', color: '#FFFFFF', fontSize: 15, fontWeight: 600, cursor: 'pointer', transition: 'background .15s' }}>Notify me</button>
               </form>
@@ -227,8 +228,8 @@ function EarlyAccess() {
 function Footer() {
   return (
     <footer id="contact" style={{ borderTop: '1px solid #E1E6EF', background: '#F7F8FB' }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto', padding: '64px 40px 36px' }}>
-        <div style={{ display: 'flex', gap: 56, flexWrap: 'wrap', justifyContent: 'space-between' }}>
+      <div className="mr-container mr-footer-inner">
+        <div className="mr-footer-columns">
           <div style={{ maxWidth: 380 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 18 }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#A31F34' }} />
@@ -245,7 +246,7 @@ function Footer() {
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: '#6A7689' }}>One Broadway, 14th Floor<br />Cambridge, MA 02142</p>
           </div>
 
-          <div style={{ display: 'flex', gap: 56, flexWrap: 'wrap' }}>
+          <div className="mr-footer-links">
             <div>
               <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, letterSpacing: '0.16em', color: '#9AA6BC', marginBottom: 16 }}>PLATFORM</div>
               {[['#platform', 'Risk mapping'], ['#platform', 'Evidence & audit'], ['#taxonomy', 'Taxonomy']].map(([href, label]) => (
@@ -261,7 +262,7 @@ function Footer() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginTop: 56, paddingTop: 24, borderTop: '1px solid #E1E6EF' }}>
+        <div className="mr-footer-bottom">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <svg width="20" height="20" viewBox="0 0 26 26" fill="none" aria-hidden="true">
               <rect x="0.75" y="0.75" width="24.5" height="24.5" rx="6" stroke="#2348E0" strokeWidth="1.5" />
@@ -270,7 +271,7 @@ function Footer() {
             </svg>
             <span style={{ fontSize: 13, color: '#6A7689' }}>© 2026 Meridian Risk Intelligence, Inc.</span>
           </div>
-          <div style={{ display: 'flex', gap: 24 }}>
+          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {['Privacy', 'Terms', 'Security', 'LinkedIn'].map(label => (
               <a key={label} href="#" className="mr-foot" style={{ fontSize: 13, color: '#6A7689', textDecoration: 'none', transition: 'color .15s' }}>{label}</a>
             ))}
@@ -286,7 +287,7 @@ export default function MeridianLanding() {
     <div style={{ fontFamily: "'Hanken Grotesk', system-ui, sans-serif", color: '#131922', background: '#FFFFFF' }}>
       <div style={{ height: 3, background: '#2348E0' }} />
       <Header />
-      <div id="top" style={{ maxWidth: 1180, margin: '0 auto', padding: '0 40px' }}>
+      <div id="top" className="mr-container">
         <Hero />
         <StatBand />
         <Taxonomy />
