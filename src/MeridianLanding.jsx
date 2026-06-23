@@ -216,8 +216,11 @@ function Pipeline() {
   const active = STAGES[stageIdx];
 
   const inputs = [
-    ['📄','Policies & SOPs'], ['📑','Contracts & DPAs'], ['🧾','Audit & pen-test reports'],
-    ['🧠','AI model cards'], ['🗂️','Evidence artifacts'],
+    ['POL', 'Policies & SOPs'],
+    ['DPA', 'Contracts & DPAs'],
+    ['RPT', 'Audit & pen-test reports'],
+    ['MOD', 'AI model cards'],
+    ['EVI', 'Evidence artifacts'],
   ];
   const outputs = [
     { title: 'Risk Register',     sub: 'FAIR-scored, prioritized',   color: '#BB2E41' },
@@ -243,7 +246,7 @@ function Pipeline() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
             {inputs.map(([icon, label]) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#FFFFFF', border: '1px solid #E1E6EF', borderRadius: 8 }}>
-                <span style={{ fontSize: 14 }}>{icon}</span>
+                <Mono size={10} color="#2348E0" style={{ flex: 'none', background: '#EEF3FF', padding: '3px 6px', borderRadius: 4, letterSpacing: '0.05em' }}>{icon}</Mono>
                 <span style={{ fontSize: 13.5, color: '#353E4D' }}>{label}</span>
               </div>
             ))}
